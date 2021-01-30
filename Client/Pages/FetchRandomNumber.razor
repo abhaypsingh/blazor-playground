@@ -1,0 +1,45 @@
+@page "/fetchdata"
+@using BlazorApp.Shared 
+@inject HttpClient Http
+
+<h1>Random Number</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (randomNumber == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Value</th>
+               
+            </tr>
+        </thead>
+        <tbody>         
+                <tr>
+                    <td>randomNumber</td>                   
+                </tr>
+            
+        </tbody>
+    </table>
+}
+
+@code {
+    private int randomNumber;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            randomNumber = await Http.GetFromJsonAsync<int>("/api/MyRandom");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
+    }
+}
