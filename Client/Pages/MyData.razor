@@ -1,8 +1,32 @@
 @page "/MyData"
-@using BlazorApp.Shared 
+@using BlazorApp.Shared
 @inject HttpClient Http
 
 <h1>Weather forecast</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
 
+@if (name == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+<p>name</p>
+}
+
+@code {
+    private string name;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            name = await Http.GetFromJsonAsync<string>("/api/MyFunction");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
+    }
+}
