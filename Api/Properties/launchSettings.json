@@ -2,7 +2,7 @@
   "profiles": {
     "Api": {
       "commandName": "Project",
-      "commandLineArgs": "start --cors *"
+      "commandLineArgs": "start --cors *  --pause-on-error --port 4000 --csharp"
     }
   }
 }

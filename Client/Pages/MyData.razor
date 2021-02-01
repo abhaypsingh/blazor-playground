@@ -2,9 +2,9 @@
 @using BlazorApp.Shared
 @inject HttpClient Http
 
-<h1>Weather forecast</h1>
+<h1>Gamestop forecast</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+
 
 @if (string.IsNullOrEmpty(name))
 {
@@ -22,7 +22,8 @@ else
     {
         try
         {
-            name = await Http.GetFromJsonAsync<string>("/api/MyFunction?name=" +"Abhay");
+            //name = await Http.GetFromJsonAsync<string>("/api/MyFunction?name=" +"Abhay");
+            name = await Http.GetFromJsonAsync<string>("/api/MyFunction");
         }
         catch (Exception ex)
         {
