@@ -6,7 +6,7 @@
 
 <p>This component demonstrates fetching data from the server.</p>
 
-@if (name == null)
+@if (string.IsNullOrEmpty(name))
 {
     <p><em>Loading...</em></p>
 }
@@ -22,7 +22,7 @@ else
     {
         try
         {
-            name = await Http.GetFromJsonAsync<string>("/api/MyFunction");
+            name = await Http.GetFromJsonAsync<string>("/api/MyFunction?name=" +"Abhay");
         }
         catch (Exception ex)
         {
