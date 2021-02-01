@@ -37,7 +37,7 @@ namespace BlazorApp.Api
     [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
     ILogger log)
         {
-           return new OkObjectResult("Abhay");
+           return new JsonResult("Abhay");
         }
     }
 }

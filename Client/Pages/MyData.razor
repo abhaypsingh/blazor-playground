@@ -6,7 +6,7 @@
 
 
 
-@if (string.IsNullOrEmpty(name))
+@if (String.IsNullOrEmpty(name))
 {
     <p><em>Loading...</em></p>
 }
@@ -16,14 +16,14 @@ else
 }
 
 @code {
-    private string name;
+    private String name;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
             //name = await Http.GetFromJsonAsync<string>("/api/MyFunction?name=" +"Abhay");
-            name = await Http.GetFromJsonAsync<string>("/api/MyFunction");
+            name = await Http.GetFromJsonAsync<String>("/api/MyFunction");
         }
         catch (Exception ex)
         {
