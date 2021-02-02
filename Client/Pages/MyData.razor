@@ -12,7 +12,8 @@
 }
 else
 {
-<p>@name</p>
+    <p>Name</p>
+    <p>@name</p>
 }
 
 @code {
@@ -24,7 +25,7 @@ else
         {
             //name = await Http.GetFromJsonAsync<string>("/api/MyFunction?name=" +"Abhay");
             name = await Http.GetFromJsonAsync<String>("/api/MyFunction");
-         
+
         }
         catch (Exception ex)
         {
